@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci - Portfolio de Mejdoubi Amine</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #3d0000 100%);
+            color: #ffffff;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .thank-you-container {
+            max-width: 600px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 1rem;
+            border-top: 3px solid #ff0000;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.1);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #ff0000, #ff4d4d);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .home-button {
+            background: linear-gradient(90deg, #ff0000, #ff4d4d);
+            transition: all 0.3s ease;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <div class="mb-6">
+            <i class="fas fa-check-circle text-6xl gradient-text mb-4"></i>
+            <h1 class="text-4xl font-bold mb-4 gradient-text">Message envoyé !</h1>
+            <p class="text-xl mb-6">Merci de m'avoir contacté. Je vous répondrai dès que possible.</p>
+            <p class="text-gray-300 mb-8">Vous recevrez une confirmation par email sous peu.</p>
+        </div>
+        <a href="index.html" class="home-button text-white font-semibold py-3 px-6 rounded-full inline-block">
+            <i class="fas fa-arrow-left mr-2"></i> Retour à l'accueil
+        </a>
+    </div>
+</body>
+</html>
