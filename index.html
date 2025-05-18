@@ -1,128 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Mejdoubi Amine</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
-        
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #1a0000 50%, #3d0000 100%);
-            color: #ffffff;
-            scroll-behavior: smooth;
-        }
-        
-        .gradient-text {
-            background: linear-gradient(90deg, #ff0000, #ff4d4d);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .section-title {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 2rem;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, #ff0000, transparent);
-        }
-        
-        .skill-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-left: 3px solid #ff0000;
-            transition: all 0.3s ease;
-        }
-        
-        .skill-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
-        }
-        
-        .timeline-item {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 30px;
-        }
-        
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 5px;
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background: #ff0000;
-        }
-        
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            left: 7px;
-            top: 20px;
-            width: 1px;
-            height: calc(100% - 15px);
-            background: rgba(255, 255, 255, 0.2);
-        }
-        
-        .language-level {
-            height: 10px;
-            background: linear-gradient(90deg, #ff0000, #ff4d4d);
-            border-radius: 5px;
-        }
-        
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-top: 3px solid #ff0000;
-            transition: all 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 0, 0, 0.2);
-        }
-        
-        .nav-link {
-            position: relative;
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #ff0000;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after {
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 py-4 px-6">
+    <nav class="fixed w-full z-50 py-4 px-6 bg-black/80 backdrop-blur-md shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <div class="text-2xl font-bold gradient-text">PORTFOLIO</div>
-            <div class="hidden md:flex space-x-8">
+            <div class="hidden md:flex space-x-6 lg:space-x-8">
                 <a href="#about" class="nav-link text-white hover:text-red-400 transition">À PROPOS</a>
                 <a href="#skills" class="nav-link text-white hover:text-red-400 transition">COMPÉTENCES</a>
                 <a href="#experience" class="nav-link text-white hover:text-red-400 transition">EXPÉRIENCE</a>
@@ -130,52 +20,59 @@
                 <a href="#soft-skills" class="nav-link text-white hover:text-red-400 transition">SOFT SKILLS</a>
                 <a href="#languages" class="nav-link text-white hover:text-red-400 transition">LANGUES</a>
                 <a href="#projects" class="nav-link text-white hover:text-red-400 transition">PROJETS</a>
+                <a href="#contact" class="nav-link text-white hover:text-red-400 transition">CONTACT</a>
             </div>
-            <button class="md:hidden text-white focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
             </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden mt-3 space-y-2 px-2 pb-3">
+            <a href="#about" class="block nav-link text-white hover:text-red-400 transition py-2">À PROPOS</a>
+            <a href="#skills" class="block nav-link text-white hover:text-red-400 transition py-2">COMPÉTENCES</a>
+            <a href="#experience" class="block nav-link text-white hover:text-red-400 transition py-2">EXPÉRIENCE</a>
+            <a href="#education" class="block nav-link text-white hover:text-red-400 transition py-2">ÉTUDES</a>
+            <a href="#soft-skills" class="block nav-link text-white hover:text-red-400 transition py-2">SOFT SKILLS</a>
+            <a href="#languages" class="block nav-link text-white hover:text-red-400 transition py-2">LANGUES</a>
+            <a href="#projects" class="block nav-link text-white hover:text-red-400 transition py-2">PROJETS</a>
+            <a href="#contact" class="block nav-link text-white hover:text-red-400 transition py-2">CONTACT</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="about" class="min-h-screen flex items-center pt-20">
-        <div class="container mx-auto px-6 py-20">
+    <section id="about" class="min-h-screen flex items-center pt-24 md:pt-20">
+        <div class="container mx-auto px-6 py-10 md:py-20">
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
                         <span class="gradient-text">Mejdoubi</span><br>
                         <span class="text-white">Amine</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-gray-300 mb-8">
+                    <p class="text-base sm:text-lg md:text-xl text-gray-300 mb-8">
                         Avec une solide expertise en cloud, réseaux, administration système et développement, j’ai acquis une
- expertise dans la gestion et l’optimisation des infrastructures numériques. Doté d’un bon sens de la
- résolution de problèmes et d’une forte sensibilité à la sécurité, je suis passionné par l’innovation et
- toujours à la recherche des approches modernes pour améliorer la performance et la fiabilité des
- systèmes.
+                        expertise dans la gestion et l’optimisation des infrastructures numériques. Doté d’un bon sens de la
+                        résolution de problèmes et d’une forte sensibilité à la sécurité, je suis passionné par l’innovation et
+                        toujours à la recherche des approches modernes pour améliorer la performance et la fiabilité des
+                        systèmes.
                     </p>
-                    <div class="flex space-x-4">
-                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg font-semibold hover:opacity-90 transition">
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <a href="#contact" class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg font-semibold hover:opacity-90 transition text-sm sm:text-base">
                             Contactez-moi
                         </a>
-                        <a href="#projects" class="px-6 py-3 border border-red-600 text-white rounded-lg font-semibold hover:bg-red-900/30 transition">
+                        <a href="#projects" class="px-6 py-3 border border-red-600 text-white rounded-lg font-semibold hover:bg-red-900/30 transition text-sm sm:text-base">
                             Voir mes projets
                         </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
+                <div class="md:w-1/2 flex justify-center mt-10 md:mt-0">
                     <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-red-900/30 to-black rounded-full flex items-center justify-center">
-                            <div class="w-60 h-60 md:w-72 md:h-72 bg-gradient-to-br from-red-800/20 to-black rounded-full flex items-center justify-center">
-                                <div class="w-56 h-56 md:w-64 md:h-64 bg-black rounded-full overflow-hidden border-2 border-red-900/50">
-                                    <!-- Replace with your image -->
-                                    <div class="w-full h-full bg-gray-800 flex items-center justify-center">
-                                        <img src="https://media.licdn.com/dms/image/v2/D4E03AQEfa5PIRZOgyw/profile-displayphoto-shrink_800_800/B4EZRbOwZ2HgAc-/0/1736697383965?e=1749081600&v=beta&t=-Wg86ICAhvpAUCc4KyOMF33dHLDNz1v7JvscgeKoTYI">
-                                    </div>
+                        <div class="w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 bg-gradient-to-br from-red-900/30 to-black rounded-full flex items-center justify-center">
+                            <div class="w-52 h-52 sm:w-60 sm:h-60 md:w-72 md:h-72 bg-gradient-to-br from-red-800/20 to-black rounded-full flex items-center justify-center">
+                                <div class="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 bg-black rounded-full overflow-hidden border-2 border-red-900/50">
+                                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQEfa5PIRZOgyw/profile-displayphoto-shrink_200_200/B4EZRbOwZ2HgAY-/0/1736697383955?e=1753315200&v=beta&t=Wghti-MW8dPhdq-MeuBy1stifmYskmcRKgL29Lm9vhA" alt="Photo de Amine Mejdoubi" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/256x256/1a0000/ffffff?text=Amine+M.';">
                                 </div>
                             </div>
                         </div>
-                        <div class="absolute -bottom-5 -right-5 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-red-900/50">
-                            <p class="text-sm text-red-400 font-semibold">Étudiant & Professionnel</p>
+                        <div class="absolute -bottom-3 -right-3 sm:-bottom-5 sm:-right-5 bg-black/80 backdrop-blur-sm px-3 py-1 sm:px-4 sm:py-2 rounded-lg border border-red-900/50">
+                            <p class="text-xs sm:text-sm text-red-400 font-semibold">Étudiant & Professionnel</p>
                         </div>
                     </div>
                 </div>
@@ -183,176 +80,160 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-black/50">
+    <section id="skills" class="py-16 md:py-20 bg-black/50">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">COMPÉTENCES</span> TECHNIQUES
             </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
-                <!-- Cloud Computing -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-cloud text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Cloud Computing</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Expertise dans les plateformes cloud (Azure, OpenStack), virtualisation, et architectures cloud natives.
                     </p>
                 </div>
                 
-                <!-- Networking -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-network-wired text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Réseaux informatique</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Conception, configuration et maintenance des infrastructures réseaux, sécurité réseau et protocoles.
                     </p>
                 </div>
                 
-                <!-- System Admin -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-server text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Administration système</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Gestion des systèmes Windows et Linux, automatisation, virtualisation et maintenance des serveurs.
                     </p>
                 </div>
                 
-                <!-- Python -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fab fa-python text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Python</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Développement d'applications, scripts d'automatisation, traitement de données et intégration système.
                     </p>
                 </div>
                 
-                <!-- Wordpress -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fab fa-wordpress text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">WordPress</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Développement et gestion de sites WordPress (thèmes, plugins, optimisation).
                     </p>
                 </div>
 
-                <!-- Web Security -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-code text-2xl text-red-500"></i>
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <i class="fas fa-shield-alt text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Web Security / Pentesting</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Tests de sécurité et protection des applications web (pentesting, vulnérabilités OWASP) / CTF.
                     </p>
                 </div>
 
-                <!-- Office -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-chart-line text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Digital Marketing</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Gestion de campagnes (SEO, réseaux sociaux, Google Ads).
                     </p>
                 </div>
 
-                <!-- Flutter -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-mobile-alt text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Dart / Flutter</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Développement d'applications multiplateformes avec Flutter, conception d'UI/UX et intégration d'API.
                     </p>
                 </div>
                 
-                <!-- adobe -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-video text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Adobe Premiere Pro</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Montage vidéo et création de contenus multimédias.
                     </p>
                 </div>
 
-                <!-- Photoshop / Illustrator -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
-                            <i class="fas fa-image text-2xl text-red-500"></i>
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
+                            <i class="fas fa-palette text-2xl text-red-500"></i> 
                         </div>
                         <h3 class="text-xl font-semibold">Photoshop / Illustrator</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Création et retouche graphique (logos, illustrations, maquettes).
                     </p>
                 </div>
 
-                <!-- Office -->
                 <div class="skill-card p-6 rounded-lg">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4">
+                        <div class="w-12 h-12 bg-red-900/30 rounded-full flex items-center justify-center mr-4 shrink-0">
                             <i class="fas fa-file-alt text-2xl text-red-500"></i>
                         </div>
                         <h3 class="text-xl font-semibold">Bureautique</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Maîtrise avancée des suites bureautiques (Microsoft Office, LibreOffice), rédaction technique et présentation.
                     </p>
                 </div>
-
-
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-20">
+    <section id="experience" class="py-16 md:py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">EXPÉRIENCE</span> PROFESSIONNELLE
             </h2>
-            <div class="mt-10">
-                <!-- Auto-entrepreneur -->
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+            <div class="mt-10 collapsible-section" data-initial-items="1">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">Freelance et Auto-entrepreneur</h3>
-                            <span class="text-red-400 font-medium">2020 - 2025</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2020 - 2025</span>
                         </div>
-                        <ul class="text-gray-300 list-disc pl-5 space-y-1">
+                        <ul class="text-gray-300 list-disc pl-5 space-y-1 text-sm sm:text-base">
                             <li>Collaboration avec de nombreux clients au Maroc et à l'étranger sur des projets digitaux.</li>
                             <li>Spécialisation en marketing digital, gestion des réseaux sociaux et SEO.</li>
                             <li>Développement de sites web, applications mobiles et CMS sur mesure.</li>
@@ -361,62 +242,62 @@
                     </div>
                 </div>
                 
-                <!-- Web Developer -->
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">Développeur Web</h3>
-                            <span class="text-red-400 font-medium">2021</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2021</span>
                         </div>
-                        <p class="text-gray-300 mb-2">SoftMedia</p>
-                        <li>Développement et maintenance de sites web et applications.</li>
-                <li>Collaboration avec l'équipe technique sur des projets clients.</li>
+                        <p class="text-gray-300 mb-2 text-sm sm:text-base">SoftMedia</p>
+                        <ul class="text-gray-300 list-disc pl-5 space-y-1 text-sm sm:text-base">
+                           <li>Développement et maintenance de sites web et applications.</li>
+                           <li>Collaboration avec l'équipe technique sur des projets clients.</li>
+                        </ul>
                     </div>
                 </div>
                 
-                <!-- Add more experiences as needed -->
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">Assistant Animateur</h3>
-                            <span class="text-red-400 font-medium">2022</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2022</span>
                         </div>
-                        <p class="text-gray-300 mb-2">Summer camp MDSO</p>
-                        <li>Gestion de groupes et résolution de conflits.</li>
-                        <li>Travail d'équipe dans un environnement dynamique.</li>
+                        <p class="text-gray-300 mb-2 text-sm sm:text-base">Summer camp MDSO</p>
+                        <ul class="text-gray-300 list-disc pl-5 space-y-1 text-sm sm:text-base">
+                            <li>Gestion de groupes et résolution de conflits.</li>
+                            <li>Travail d'équipe dans un environnement dynamique.</li>
+                        </ul>
                     </div>
                 </div>
 
-
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">Bénévole communautaire</h3>
-                            <span class="text-red-400 font-medium">2022</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2022</span>
                         </div>
-                        <p class="text-gray-300 mb-2">American Space Oujda</p>
-                        
+                        <p class="text-gray-300 text-sm sm:text-base">American Space Oujda</p>
                     </div>
                 </div>
+                 <button class="show-more-less-button mt-6 md:hidden">Afficher Plus</button>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-20 bg-black/50">
+    <section id="education" class="py-16 md:py-20 bg-black/50">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">PARCOURS</span> ACADÉMIQUE
             </h2>
-            <div class="mt-10">
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+            <div class="mt-10 collapsible-section" data-initial-items="1">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">CMC Nador</h3>
-                            <span class="text-red-400 font-medium">2024-2025</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2024-2025</span>
                         </div>
-                        <p class="text-gray-300 mb-2"><b>Infrastructure Digitale option Cloud Computing</b></p>
-                        <ul class="text-gray-300 list-disc pl-5 space-y-1">
+                        <p class="text-gray-300 mb-2 text-sm sm:text-base"><b>Infrastructure Digitale option Cloud Computing</b></p>
+                        <ul class="text-gray-300 list-disc pl-5 space-y-1 text-sm sm:text-base">
                             <li>Administration des plateformes cloud (Azure, OpenStack)</li>
                             <li>Sécurité cloud et virtualisation</li>
                             <li>Architectures cloud natives et DevOps</li>
@@ -424,14 +305,14 @@
                     </div>
                 </div>
                 
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">OFFSHORING OUJDA</h3>
-                            <span class="text-red-400 font-medium">2023-2024</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2023-2024</span>
                         </div>
-                        <p class="text-gray-300 mb-2"><b>Infrastructure Digitale</b></p>
-                        <ul class="text-gray-300 list-disc pl-5 space-y-1">
+                        <p class="text-gray-300 mb-2 text-sm sm:text-base"><b>Infrastructure Digitale</b></p>
+                        <ul class="text-gray-300 list-disc pl-5 space-y-1 text-sm sm:text-base">
                             <li>System Administration (Linux/Windows)</li>
                             <li>Virtualization (VMware, VirtualBox, Docker)</li>
                             <li>Networking (CCNA)</li>
@@ -440,62 +321,62 @@
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">Université Mohammed Premier OUJDA</h3>
-                            <span class="text-red-400 font-medium">2019-2023</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2019-2023</span>
                         </div>
-                        <p class="text-gray-300 mb-2"><b>Licence Sciences économiques et Gestion</b></p>
+                        <p class="text-gray-300 mb-2 text-sm sm:text-base"><b>Licence Sciences économiques et Gestion</b></p>
                     </div>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600">
-                        <div class="flex flex-col md:flex-row md:justify-between md:items-center mb-2">
+                <div class="timeline-item collapsible-item">
+                    <div class="bg-black/50 p-6 rounded-lg border-l-4 border-red-600 shadow-md">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
                             <h3 class="text-xl font-semibold">Université Mohammed Premier OUJDA</h3>
-                            <span class="text-red-400 font-medium">2018-2019</span>
+                            <span class="text-red-400 font-medium text-sm sm:text-base mt-1 sm:mt-0">2018-2019</span>
                         </div>
-                        <p class="text-gray-300 mb-2"><b>Licence Sciences de la Matière Physique</b></p>
+                        <p class="text-gray-300 mb-2 text-sm sm:text-base"><b>Licence Sciences de la Matière Physique</b></p>
                     </div>
                 </div>
+                <button class="show-more-less-button mt-6 md:hidden">Afficher Plus</button>
             </div>
         </div>
     </section>
 
-    <!-- Soft Skills Section -->
-    <section id="soft-skills" class="py-20">
+    <section id="soft-skills" class="py-16 md:py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">SOFT</span> SKILLS
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-                <div class="bg-black/50 p-6 rounded-lg border-t-4 border-red-600">
+                <div class="bg-black/50 p-6 rounded-lg border-t-4 border-red-600 shadow-md">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-lightbulb text-2xl text-red-500 mr-4"></i>
                         <h3 class="text-xl font-semibold">Résolution de problèmes</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Capacité à analyser des situations complexes et à proposer des solutions techniques adaptées.
                     </p>
                 </div>
                 
-                <div class="bg-black/50 p-6 rounded-lg border-t-4 border-red-600">
+                <div class="bg-black/50 p-6 rounded-lg border-t-4 border-red-600 shadow-md">
                     <div class="flex items-center mb-4">
                         <i class="fas fa-brain text-2xl text-red-500 mr-4"></i>
                         <h3 class="text-xl font-semibold">Pensée créative</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Approche innovante pour concevoir des architectures et résoudre des défis techniques.
                     </p>
                 </div>
                 
-                <div class="bg-black/50 p-6 rounded-lg border-t-4 border-red-600">
+                <div class="bg-black/50 p-6 rounded-lg border-t-4 border-red-600 shadow-md">
                     <div class="flex items-center mb-4">
-                        <i class="fas fa-random text-2xl text-red-500 mr-4"></i>
+                        <i class="fas fa-sync-alt text-2xl text-red-500 mr-4"></i>
                         <h3 class="text-xl font-semibold">Flexibilité</h3>
                     </div>
-                    <p class="text-gray-300">
+                    <p class="text-gray-300 text-sm sm:text-base">
                         Adaptation rapide aux nouvelles technologies et méthodologies dans un environnement en constante évolution.
                     </p>
                 </div>
@@ -503,17 +384,16 @@
         </div>
     </section>
 
-    <!-- Languages Section -->
-    <section id="languages" class="py-20 bg-black/50">
+    <section id="languages" class="py-16 md:py-20 bg-black/50">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">MAÎTRISE</span> DES LANGUES
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10">
                 <div>
                     <div class="flex items-center justify-between mb-2">
-                        <h3 class="text-xl font-semibold">Arabic</h3>
-                        <span class="text-red-400">Langue maternelle</span>
+                        <h3 class="text-xl font-semibold">Arabe</h3>
+                        <span class="text-red-400 text-sm sm:text-base">Langue maternelle</span>
                     </div>
                     <div class="w-full bg-gray-800 rounded-full h-2.5">
                         <div class="language-level h-2.5 rounded-full" style="width: 100%"></div>
@@ -523,7 +403,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-xl font-semibold">Anglais</h3>
-                        <span class="text-red-400">Avancé</span>
+                        <span class="text-red-400 text-sm sm:text-base">Avancé</span>
                     </div>
                     <div class="w-full bg-gray-800 rounded-full h-2.5">
                         <div class="language-level h-2.5 rounded-full" style="width: 80%"></div>
@@ -533,7 +413,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-xl font-semibold">Français</h3>
-                        <span class="text-red-400">Intermédiaire</span>
+                        <span class="text-red-400 text-sm sm:text-base">Intermédiaire</span>
                     </div>
                     <div class="w-full bg-gray-800 rounded-full h-2.5">
                         <div class="language-level h-2.5 rounded-full" style="width: 60%"></div>
@@ -543,7 +423,7 @@
                 <div>
                     <div class="flex items-center justify-between mb-2">
                         <h3 class="text-xl font-semibold">Espagnol</h3>
-                        <span class="text-red-400"> Niveau basique</span>
+                        <span class="text-red-400 text-sm sm:text-base">Niveau basique</span>
                     </div>
                     <div class="w-full bg-gray-800 rounded-full h-2.5">
                         <div class="language-level h-2.5 rounded-full" style="width: 30%"></div>
@@ -553,28 +433,26 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-20">
+    <section id="projects" class="py-16 md:py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">PROJETS</span> ACADÉMIQUES
             </h2>
-            <div class="mt-10">
-                <div class="project-card p-6 rounded-lg mb-8">
+            <div class="mt-10 space-y-8 collapsible-section" data-initial-items="2"> <div class="project-card p-6 rounded-lg collapsible-item">
                     <h3 class="text-2xl font-semibold mb-4">Déploiement OpenStack & Gnocchi</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full text-sm">OpenStack</span>
-                        <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full text-sm">Gnocchi</span>
-                        <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full text-sm">MySQL</span>
-                        <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full text-sm">Keystone</span>
-                        <span class="px-3 py-1 bg-red-900/30 text-red-400 rounded-full text-sm">Monitoring</span>
+                        <span class="project-tag bg-red-900/30 text-red-400">OpenStack</span>
+                        <span class="project-tag bg-red-900/30 text-red-400">Gnocchi</span>
+                        <span class="project-tag bg-red-900/30 text-red-400">MySQL</span>
+                        <span class="project-tag bg-red-900/30 text-red-400">Keystone</span>
+                        <span class="project-tag bg-red-900/30 text-red-400">Monitoring</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-300 mb-4 text-sm sm:text-base">
                         Installation d'OpenStack DevStack sur machine virtuelle, configuration de Gnocchi avec MySQL/Keystone, gestion et monitoring des ressources cloud.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-medium text-red-400 mb-2">Réalisations :</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
                             <li>Déploiement complet d'une infrastructure OpenStack</li>
                             <li>Intégration de Gnocchi pour la collecte de métriques</li>
                             <li>Configuration de Keystone pour l'authentification</li>
@@ -582,87 +460,80 @@
                         </ul>
                     </div>
                     <div class="flex space-x-4">
-                        <a href="https://docs.openstack.org/ceilometer/latest/install/install-base-ubuntu.html" class="text-red-400 hover:text-red-300 transition flex items-center">
+                        <a href="https://docs.openstack.org/ceilometer/latest/install/install-base-ubuntu.html" target="_blank" rel="noopener noreferrer" class="text-red-400 hover:text-red-300 transition flex items-center text-sm sm:text-base">
                             <i class="fas fa-file-pdf mr-2"></i> Documentation
                         </a>
                     </div>
                 </div>
                 
-                <!-- Add more projects as needed -->
-                <div class="project-card p-6 rounded-lg mb-8">
+                <div class="project-card p-6 rounded-lg collapsible-item">
                     <h3 class="text-2xl font-semibold mb-4">Cluster Kubernetes & Réseau Flannel</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-sm">Kubernetes</span>
-                        <span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-sm">Minikube</span>
-                        <span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-sm">k3s</span>
-                        <span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-sm">Flannel</span>
-                        <span class="px-3 py-1 bg-blue-900/30 text-blue-400 rounded-full text-sm">Docker</span>
+                        <span class="project-tag bg-blue-900/30 text-blue-400">Kubernetes</span>
+                        <span class="project-tag bg-blue-900/30 text-blue-400">Minikube</span>
+                        <span class="project-tag bg-blue-900/30 text-blue-400">k3s</span>
+                        <span class="project-tag bg-blue-900/30 text-blue-400">Flannel</span>
+                        <span class="project-tag bg-blue-900/30 text-blue-400">Docker</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-300 mb-4 text-sm sm:text-base">
                         Installation de Minikube et k3s, déploiement d'applications conteneurisées et configuration du réseau avec Flannel CNI.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-medium text-blue-400 mb-2">Réalisations :</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
                             <li>Mise en place d'un cluster Kubernetes local avec Minikube</li>
                             <li>Déploiement de k3s pour un environnement léger</li>
                             <li>Configuration du réseau overlay avec Flannel</li>
                             <li>Déploiement d'applications test avec Helm</li>
                         </ul>
                     </div>
-                    <div class="flex space-x-4">
-                        <!-- <a href="#" class="text-blue-400 hover:text-blue-300 transition flex items-center">
-                            <i class="fas fa-code mr-2"></i> Voir le code
-                        </a> -->
-                    </div>
                 </div>
                 
-                <!-- Project 2: Azure CLI Simulator -->
-                <div class="project-card p-6 rounded-lg mb-8">
+                <div class="project-card p-6 rounded-lg collapsible-item">
                     <h3 class="text-2xl font-semibold mb-4">Simulation Azure CLI (En cours)</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-sky-900/30 text-sky-400 rounded-full text-sm">Azure</span>
-                        <span class="px-3 py-1 bg-sky-900/30 text-sky-400 rounded-full text-sm">CLI</span>
-                        <span class="px-3 py-1 bg-sky-900/30 text-sky-400 rounded-full text-sm">VNets</span>
-                        <span class="px-3 py-1 bg-sky-900/30 text-sky-400 rounded-full text-sm">Peering</span>
-                        <span class="px-3 py-1 bg-sky-900/30 text-sky-400 rounded-full text-sm">Web App</span>
+                        <span class="project-tag bg-sky-900/30 text-sky-400">Azure</span>
+                        <span class="project-tag bg-sky-900/30 text-sky-400">CLI</span>
+                        <span class="project-tag bg-sky-900/30 text-sky-400">VNets</span>
+                        <span class="project-tag bg-sky-900/30 text-sky-400">Peering</span>
+                        <span class="project-tag bg-sky-900/30 text-sky-400">Web App</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-300 mb-4 text-sm sm:text-base">
                         Plateforme web interactive simulant l'interface Azure CLI pour la gestion des réseaux virtuels (VNets) et le peering.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-medium text-sky-400 mb-2">Réalisations :</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
                             <li>Interface web reproduisant les commandes Azure CLI</li>
                             <li>Simulation des opérations réseau (VNets, peering)</li>
                             <li>Visualisation interactive de l'architecture réseau</li>
                             <li>Système de tutoriel intégré</li>
                         </ul>
                     </div>
-                    <div class="flex space-x-4">
-                        <a href="https://github.com/masterpiecedotcom/azure-cli-playground" class="text-sky-400 hover:text-sky-300 transition flex items-center">
-                            <i class="fas fa-code mr-2"></i> Code Source
+                    <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4">
+                        <a href="https://github.com/masterpiecedotcom/azure-cli-playground" target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:text-sky-300 transition flex items-center text-sm sm:text-base">
+                            <i class="fab fa-github mr-2"></i> Code Source
                         </a>
-                        <a href="#" class="text-sky-400 hover:text-sky-300 transition flex items-center">
-                            <i class="fas fa-play mr-2"></i> Démo Live
+                        <a href="#" class="text-sky-400 hover:text-sky-300 transition flex items-center text-sm sm:text-base opacity-50 cursor-not-allowed" aria-disabled="true" onclick="event.preventDefault();">
+                            <i class="fas fa-play mr-2"></i> Démo Live (Bientôt)
                         </a>
                     </div>
                 </div>
                 
-                <!-- Project 3: findIT App -->
-                <div class="project-card p-6 rounded-lg mb-8">
+                <div class="project-card p-6 rounded-lg collapsible-item">
                     <h3 class="text-2xl font-semibold mb-4">FindIT - Lost & Found App</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full text-sm">JavaScript</span>
-                        <span class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full text-sm">Firebase</span>
-                        <span class="px-3 py-1 bg-purple-900/30 text-purple-400 rounded-full text-sm">Maps API</span>
+                        <span class="project-tag bg-purple-900/30 text-purple-400">JavaScript</span>
+                        <span class="project-tag bg-purple-900/30 text-purple-400">Firebase</span>
+                        <span class="project-tag bg-purple-900/30 text-purple-400">Maps API</span>
+                        <span class="project-tag bg-purple-900/30 text-purple-400">Mobile First</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-300 mb-4 text-sm sm:text-base">
                         Application mobile pour signaler et retrouver des objets perdus, avec géolocalisation et système de matching.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-medium text-purple-400 mb-2">Fonctionnalités :</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
                             <li>Signalement d'objets perdus/trouvés avec photos</li>
                             <li>Géolocalisation via Google Maps API</li>
                             <li>Système de notification pour les matches</li>
@@ -670,26 +541,26 @@
                         </ul>
                     </div>
                     <div class="flex space-x-4">
-                        <a href="https://github.com/masterpiecedotcom/findit.github.io" class="text-purple-400 hover:text-purple-300 transition flex items-center">
-                            <i class="fas fa-code mr-2"></i> GitHub
+                        <a href="https://github.com/masterpiecedotcom/findit.github.io" target="_blank" rel="noopener noreferrer" class="text-purple-400 hover:text-purple-300 transition flex items-center text-sm sm:text-base">
+                            <i class="fab fa-github mr-2"></i> GitHub
                         </a>
                     </div>
                 </div>
                 
-                <!-- Project 4: Unsplash Generator -->
-                <div class="project-card p-6 rounded-lg mb-8">
+                <div class="project-card p-6 rounded-lg collapsible-item">
                     <h3 class="text-2xl font-semibold mb-4">Unsplash Random Image Generator</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full text-sm">API</span>
-                        <span class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full text-sm">Python</span>
-                        <span class="px-3 py-1 bg-green-900/30 text-green-400 rounded-full text-sm">Unsplash</span>
+                        <span class="project-tag bg-green-900/30 text-green-400">API</span>
+                        <span class="project-tag bg-green-900/30 text-green-400">JavaScript</span>
+                        <span class="project-tag bg-green-900/30 text-green-400">Unsplash</span>
+                        <span class="project-tag bg-green-900/30 text-green-400">Web</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-300 mb-4 text-sm sm:text-base">
                         Générateur d'images aléatoires utilisant l'API Unsplash avec filtres par catégories et téléchargement.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-medium text-green-400 mb-2">Techniques :</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
                             <li>Intégration de l'API Unsplash avec fetch</li>
                             <li>Interface de filtrage par mots-clés</li>
                             <li>Système de favoris local (localStorage)</li>
@@ -697,58 +568,55 @@
                         </ul>
                     </div>
                     <div class="flex space-x-4">
-                        <a href="https://github.com/masterpiecedotcom/random_picture" class="text-green-400 hover:text-green-300 transition flex items-center">
-                            <i class="fas fa-code mr-2"></i> Code
+                        <a href="https://github.com/masterpiecedotcom/random_picture" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:text-green-300 transition flex items-center text-sm sm:text-base">
+                            <i class="fab fa-github mr-2"></i> Code
                         </a>
                     </div>
                 </div>
                 
-                <!-- Project 5: Wind Turbine Prototype -->
-                <div class="project-card p-6 rounded-lg mb-8">
+                <div class="project-card p-6 rounded-lg collapsible-item">
                     <h3 class="text-2xl font-semibold mb-4">Wind Turbine for Vehicles (Prototype)</h3>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="px-3 py-1 bg-amber-900/30 text-amber-400 rounded-full text-sm">IoT</span>
-                        <span class="px-3 py-1 bg-amber-900/30 text-amber-400 rounded-full text-sm">Arduino</span>
-                        <span class="px-3 py-1 bg-amber-900/30 text-amber-400 rounded-full text-sm">3D Design</span>
-                        <span class="px-3 py-1 bg-amber-900/30 text-amber-400 rounded-full text-sm">Renewable Energy</span>
+                        <span class="project-tag bg-amber-900/30 text-amber-400">IoT</span>
+                        <span class="project-tag bg-amber-900/30 text-amber-400">Arduino</span>
+                        <span class="project-tag bg-amber-900/30 text-amber-400">3D Design</span>
+                        <span class="project-tag bg-amber-900/30 text-amber-400">Renewable Energy</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
+                    <p class="text-gray-300 mb-4 text-sm sm:text-base">
                         Prototype de turbine éolienne pour véhicules convertissant le flux d'air en énergie électrique.
                     </p>
                     <div class="mb-4">
                         <h4 class="text-lg font-medium text-amber-400 mb-2">Détails :</h4>
-                        <ul class="list-disc list-inside text-gray-300 space-y-1">
+                        <ul class="list-disc list-inside text-gray-300 space-y-1 text-sm sm:text-base">
                             <li>Tests d'efficacité à différentes vitesses</li>
                             <li>Calculs d'énergie potentielle générée</li>
                         </ul>
                     </div>
-                    <div class="flex space-x-4">
-                    </div>
                 </div>
+                <button class="show-more-less-button mt-6 md:hidden">Afficher Plus</button>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-black/50">
+    <section id="contact" class="py-16 md:py-20 bg-black/50">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold section-title">
+            <h2 class="text-3xl md:text-4xl font-bold section-title">
                 <span class="gradient-text">CONTACTEZ</span>-MOI
             </h2>
             <div class="flex flex-col md:flex-row mt-10 gap-10">
                 <div class="md:w-1/2">
                     <h3 class="text-xl font-semibold mb-4">Disponible pour des opportunités</h3>
-                    <p class="text-gray-300 mb-6">
+                    <p class="text-gray-300 mb-6 text-sm sm:text-base">
                         Que ce soit pour un projet freelance, une collaboration ou une opportunité professionnelle, n'hésitez pas à me contacter.
                     </p>
-                    <div class="space-y-4">
+                    <div class="space-y-4 text-sm sm:text-base">
                         <div class="flex items-center">
                             <i class="fas fa-envelope text-red-500 mr-4 text-xl"></i>
-                            <span class="text-gray-300">amineemejdoubi@gmail.com</span>
+                            <a href="mailto:amineemejdoubi@gmail.com" class="text-gray-300 hover:text-red-400 transition">amineemejdoubi@gmail.com</a>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-phone-alt text-red-500 mr-4 text-xl"></i>
-                            <span class="text-gray-300">+212 661722680</span>
+                            <a href="tel:+212661722680" class="text-gray-300 hover:text-red-400 transition">+212 661722680</a>
                         </div>
                         <div class="flex items-center">
                             <i class="fas fa-map-marker-alt text-red-500 mr-4 text-xl"></i>
@@ -756,17 +624,17 @@
                         </div>
                     </div>
                     <div class="flex space-x-4 mt-8">
-                        <a href="https://www.linkedin.com/in/amine-mejdoubi/" class="w-10 h-10 bg-blue-600/20 rounded-full flex items-center justify-center hover:bg-blue-600 transition group">
+                        <a href="https://www.linkedin.com/in/amine-mejdoubi/" target="_blank" rel="noopener noreferrer" class="social-icon group">
                             <i class="fab fa-linkedin-in text-white text-lg"></i>
-                            <span class="absolute -bottom-7 text-xs bg-gray-900 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">LinkedIn</span>
+                            <span class="social-tooltip group-hover:opacity-100">LinkedIn</span>
                         </a>
-                        <a href="https://github.com/masterpiecedotcom" class="w-10 h-10 bg-gray-800/20 rounded-full flex items-center justify-center hover:bg-gray-800 transition group">
+                        <a href="https://github.com/masterpiecedotcom" target="_blank" rel="noopener noreferrer" class="social-icon group">
                             <i class="fab fa-github text-white text-lg"></i>
-                            <span class="absolute -bottom-7 text-xs bg-gray-900 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">GitHub</span>
+                            <span class="social-tooltip group-hover:opacity-100">GitHub</span>
                         </a>
-                        <a href="TWITTER_URL" class="w-10 h-10 bg-black/20 rounded-full flex items-center justify-center hover:bg-black transition group">
-                            <i class="fab fa-x-twitter"></i>
-                            <span class="absolute -bottom-7 text-xs bg-gray-900 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">Twitter</span>
+                        <a href="https://x.com/AmineMejdoubi07" target="_blank" rel="noopener noreferrer" class="social-icon group"> 
+                            <i class="fab fa-twitter text-white text-lg"></i>
+                            <span class="social-tooltip group-hover:opacity-100">Twitter</span>
                         </a>
                     </div>
                 </div>
@@ -776,62 +644,60 @@
                         method="POST"
                         class="space-y-4"
                     >
-                        <!-- Hidden Fields for FormSubmit Configuration -->
-                        <input type="hidden" name="_captcha" value="false"> <!-- Disable CAPTCHA -->
-                        <input type="hidden" name="_next" value="https://masterpiecedotcom.github.io/Portfolio/thank-you.html"> <!-- Success page -->
-                        <input type="hidden" name="_subject" value="New message from portfolio!"> <!-- Email subject -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_next" value="https://masterpiecedotcom.github.io/Portfolio/thank-you.html">
+                        <input type="hidden" name="_subject" value="Nouveau message depuis le Portfolio!">
                         
-                        <!-- Name Field -->
                         <div>
-                            <label for="name" class="block text-gray-300 mb-2">Nom complet</label>
+                            <label for="name" class="block text-gray-300 mb-2 text-sm sm:text-base">Nom complet</label>
                             <input 
                                 type="text" 
                                 id="name" 
                                 name="name" 
                                 required
-                                class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                                class="form-input"
+                                placeholder="Votre nom complet"
                             >
                         </div>
                         
-                        <!-- Email Field -->
                         <div>
-                            <label for="email" class="block text-gray-300 mb-2">Email</label>
+                            <label for="email" class="block text-gray-300 mb-2 text-sm sm:text-base">Email</label>
                             <input 
                                 type="email" 
                                 id="email" 
                                 name="email" 
                                 required
-                                class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                                class="form-input"
+                                placeholder="Votre adresse e-mail"
                             >
                         </div>
                         
-                        <!-- Subject Field -->
                         <div>
-                            <label for="subject" class="block text-gray-300 mb-2">Sujet</label>
+                            <label for="subject" class="block text-gray-300 mb-2 text-sm sm:text-base">Sujet</label>
                             <input 
                                 type="text" 
                                 id="subject" 
                                 name="subject"
-                                class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                                class="form-input"
+                                placeholder="Sujet de votre message"
                             >
                         </div>
                         
-                        <!-- Message Field -->
                         <div>
-                            <label for="message" class="block text-gray-300 mb-2">Message</label>
+                            <label for="message" class="block text-gray-300 mb-2 text-sm sm:text-base">Message</label>
                             <textarea 
                                 id="message" 
                                 name="message" 
                                 rows="4" 
                                 required
-                                class="w-full bg-black/50 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-red-500"
+                                class="form-input"
+                                placeholder="Votre message ici..."
                             ></textarea>
                         </div>
                         
-                        <!-- Submit Button -->
                         <button 
                             type="submit" 
-                            class="px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg font-semibold hover:opacity-90 transition w-full"
+                            class="w-full px-6 py-3 bg-gradient-to-r from-red-600 to-red-800 text-white rounded-lg font-semibold hover:opacity-90 transition text-sm sm:text-base"
                         >
                             Envoyer le message
                         </button>
@@ -841,48 +707,17 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-8 border-t border-gray-800">
         <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="text-xl font-bold gradient-text mb-4 md:mb-0"></div>
-                <div class="text-gray-400 text-sm">
-                    &copy; 2025 Tous droits réservés.
+                <div class="text-gray-400 text-xs sm:text-sm">
+                    &copy; <span id="currentYear"></span> Tous droits réservés.
                 </div>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Mobile menu toggle
-        const mobileMenuButton = document.querySelector('.md\\:hidden');
-        const mobileMenu = document.querySelector('.md\\:flex');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-            mobileMenu.classList.toggle('flex-col');
-            mobileMenu.classList.toggle('absolute');
-            mobileMenu.classList.toggle('top-16');
-            mobileMenu.classList.toggle('right-6');
-            mobileMenu.classList.toggle('bg-black');
-            mobileMenu.classList.toggle('p-4');
-            mobileMenu.classList.toggle('rounded-lg');
-            mobileMenu.classList.toggle('shadow-lg');
-            mobileMenu.classList.toggle('space-y-4');
-            mobileMenu.classList.toggle('space-x-8');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
