@@ -51,21 +51,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- Mobile menu toggle ---
     const mobileMenuButton = document.getElementById('mobile-menu-button');
-    // mobileMenu is already defined above
-    // toggleMobileMenu is already defined above
-
     if (mobileMenuButton && mobileMenu) {
         mobileMenuButton.addEventListener('click', toggleMobileMenu);
     }
 
     // --- Active Navigation Link Highlighting ---
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav a.nav-link'); // Desktop and mobile links
+    const navLinks = document.querySelectorAll('nav a.nav-link'); 
 
     function changeNavActiveState() {
         let currentSectionId = '';
-        const navbarHeight = document.querySelector('nav')?.offsetHeight || 70; // Approx height for offset
-        const scrollBuffer = 50; // Additional buffer to trigger active state a bit earlier
+        const navbarHeight = document.querySelector('nav')?.offsetHeight || 70;
+        const scrollBuffer = 50; 
 
         sections.forEach(section => {
             const sectionTop = section.offsetTop - navbarHeight - scrollBuffer;
@@ -76,19 +73,16 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
         
-        // Handle case for the very top of the page or if no section is matched
         if (!currentSectionId && sections.length > 0) {
             if (window.pageYOffset < sections[0].offsetTop - navbarHeight - scrollBuffer) {
-                 currentSectionId = sections[0].getAttribute('id'); // Default to the first section if above it
+                 currentSectionId = sections[0].getAttribute('id');
             } else if (window.pageYOffset >= (document.body.scrollHeight - window.innerHeight - navbarHeight - scrollBuffer)) {
-                // If at the very bottom, keep the last section active or the contact section if it's last
                 currentSectionId = sections[sections.length - 1].getAttribute('id');
             }
         }
 
-
         navLinks.forEach(link => {
-            link.classList.remove('active'); // Custom class for active state styling
+            link.classList.remove('active');
             if (link.getAttribute('href') === `#${currentSectionId}`) {
                 link.classList.add('active');
             }
@@ -96,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.addEventListener('scroll', changeNavActiveState);
-    window.addEventListener('load', changeNavActiveState); // Initial check on load
+    window.addEventListener('load', changeNavActiveState); 
 
     // --- Update Footer Year ---
     const currentYearSpan = document.getElementById('currentYear');
@@ -110,22 +104,22 @@ document.addEventListener('DOMContentLoaded', function () {
     collapsibleSections.forEach(section => {
         const items = section.querySelectorAll('.collapsible-item');
         const button = section.querySelector('.show-more-less-button');
-        // Read the number of initial items from data-attribute, default to 1 if not set
         const initialItemsToShow = parseInt(section.dataset.initialItems) || 1; 
 
-        // Only proceed if there are items and a button, and more items than initially shown
         if (!items.length || !button || items.length <= initialItemsToShow) {
-            if (button) button.style.display = 'none'; // Hide button if not needed
+            if (button) button.style.display = 'none';
             return; 
         }
 
-        // Function to update visibility of items and button
+        // *** UPDATED PART ***
+        const showMoreText = button.dataset.showMore || 'Show More';
+        const showLessText = button.dataset.showLess || 'Show Less';
+
         function updateItemVisibility() {
-            const isMobile = window.innerWidth < 768; // md breakpoint from Tailwind
+            const isMobile = window.innerWidth < 768;
             
             items.forEach((item, index) => {
                 if (isMobile) {
-                    // On mobile, apply hidden-mobile class based on expanded state
                     if (section.classList.contains('expanded')) {
                         item.classList.remove('hidden-mobile');
                     } else {
@@ -136,38 +130,32 @@ document.addEventListener('DOMContentLoaded', function () {
                         }
                     }
                 } else {
-                    // On desktop, always show all items
                     item.classList.remove('hidden-mobile');
                 }
             });
 
-            // Update button visibility and text
             if (isMobile) {
-                button.style.display = 'block'; // Show button on mobile
+                button.style.display = 'block';
                 if (section.classList.contains('expanded')) {
-                    button.textContent = 'Afficher Moins';
+                    button.textContent = showLessText;
                 } else {
-                    button.textContent = 'Afficher Plus';
+                    button.textContent = showMoreText;
                 }
             } else {
-                button.style.display = 'none'; // Hide button on desktop
+                button.style.display = 'none';
             }
         }
         
-        // Event listener for the button
         button.addEventListener('click', () => {
             section.classList.toggle('expanded');
             updateItemVisibility(); 
         });
 
-        // Initial setup and on resize
         updateItemVisibility();
         window.addEventListener('resize', updateItemVisibility);
     });
 
-
-    // --- Simple Form Validation Feedback (Optional) ---
-    // This is a very basic example. For robust validation, consider libraries or more detailed checks.
+    // --- Simple Form Validation Feedback ---
     const contactForm = document.querySelector('#contact form');
     if (contactForm) {
         contactForm.addEventListener('submit', function(event) {
@@ -176,36 +164,13 @@ document.addEventListener('DOMContentLoaded', function () {
             const messageInput = document.getElementById('message');
             let isValid = true;
 
-            // Basic check for empty fields - you can add more specific validation
-            if (!nameInput.value.trim()) {
-                // You could add a class to highlight the input or show a message
-                // e.g., nameInput.classList.add('border-red-500');
-                isValid = false;
-            } else {
-                // e.g., nameInput.classList.remove('border-red-500'); // Remove error style
-            }
-
-            if (!emailInput.value.trim() || !emailInput.value.includes('@')) {
-                // e.g., emailInput.classList.add('border-red-500');
-                isValid = false;
-            } else {
-                // e.g., emailInput.classList.remove('border-red-500');
-            }
-
-            if (!messageInput.value.trim()) {
-                // e.g., messageInput.classList.add('border-red-500');
-                isValid = false;
-            } else {
-                // e.g., messageInput.classList.remove('border-red-500');
-            }
+            if (!nameInput.value.trim()) isValid = false;
+            if (!emailInput.value.trim() || !emailInput.value.includes('@')) isValid = false;
+            if (!messageInput.value.trim()) isValid = false;
 
             if (!isValid) {
-                event.preventDefault(); // Prevent form submission if validation fails
-                // alert('Veuillez remplir tous les champs requis correctement.'); // Simple alert, consider a more user-friendly message display
-                // For a better UX, display error messages next to the respective fields.
+                event.preventDefault(); 
             }
-            // If using FormSubmit.co, it handles its own success/error messaging after submission.
         });
     }
-
 });
