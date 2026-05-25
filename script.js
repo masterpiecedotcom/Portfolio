@@ -85,17 +85,15 @@ const typedElement = document.getElementById('typedText');
 const isFrench = document.documentElement.lang === 'fr';
 
 const phrases = isFrench ? [
-  'Admin Cloud & Système',
-  'Spécialiste Réseaux',
-  'Passionné DevOps',
-  'Développeur Web',
-  'Responsable Marketing Digital',
+  'Data Analytics & AI',
+  'Cloud • Networking • DevOps',
+  'Web Dev',
+  'Digital Marketing',
 ] : [
-  'Cloud & System Admin',
-  'Network Specialist',
-  'DevOps Enthusiast',
-  'Web Developer',
-  'Digital Marketer',
+  'Data Analytics & AI',
+  'Cloud • Networking • DevOps',
+  'Web Dev',
+  'Digital Marketing',
 ];
 
 let phraseIndex = 0;
