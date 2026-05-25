@@ -85,15 +85,17 @@ const typedElement = document.getElementById('typedText');
 const isFrench = document.documentElement.lang === 'fr';
 
 const phrases = isFrench ? [
-  'Data Analytics & AI',
-  'Cloud • Networking • DevOps',
-  'Web Dev',
-  'Digital Marketing',
+  'Admin Cloud & Système',
+  'Spécialiste Réseaux',
+  'Passionné DevOps',
+  'Développeur Web',
+  'Responsable Marketing Digital',
 ] : [
-  'Data Analytics & AI',
-  'Cloud • Networking • DevOps',
-  'Web Dev',
-  'Digital Marketing',
+  'Cloud & System Admin',
+  'Network Specialist',
+  'DevOps Enthusiast',
+  'Web Developer',
+  'Digital Marketer',
 ];
 
 let phraseIndex = 0;
@@ -190,6 +192,46 @@ if (toggleBtn && hiddenContainer) {
   });
 }
 
+// ===== Toggle Skills on Mobile =====
+const toggleSkillsBtn = document.getElementById('toggle-skills-btn');
+const toggleSkillsText = document.getElementById('toggle-skills-text');
+const toggleSkillsIcon = document.getElementById('toggle-skills-icon');
+const extraSkills = document.querySelectorAll('.tech-card-extra');
+
+if (toggleSkillsBtn && extraSkills.length > 0) {
+  toggleSkillsBtn.addEventListener('click', () => {
+    const isHidden = extraSkills[0].classList.contains('hidden');
+
+    extraSkills.forEach(card => {
+      if (isHidden) {
+        card.classList.remove('hidden');
+        if (typeof revealObserver !== 'undefined') {
+          revealObserver.observe(card);
+        }
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (isHidden) {
+      toggleSkillsText.textContent = isFrench ? 'Voir moins' : 'Show Less';
+      toggleSkillsIcon.setAttribute('data-lucide', 'chevron-up');
+    } else {
+      toggleSkillsText.textContent = isFrench ? 'Voir toutes les compétences' : 'See All Technologies';
+      toggleSkillsIcon.setAttribute('data-lucide', 'chevron-down');
+      
+      const skillsSection = document.getElementById('skills');
+      if (skillsSection) {
+        skillsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    
+    if (typeof lucide !== 'undefined') {
+      lucide.createIcons();
+    }
+  });
+}
+
 // ===== Counter Animation =====
 const counters = document.querySelectorAll('.counter-value');
 
@@ -280,3 +322,23 @@ document.addEventListener('mousemove', (e) => {
     orb.style.transform = `translate(${x * factor}px, ${y * factor}px)`;
   });
 });
+
+// ===== Read More Toggle for Project Descriptions on Mobile =====
+document.querySelectorAll('.read-more-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const card = btn.closest('.project-card');
+    const desc = card.querySelector('.project-desc');
+    
+    if (desc) {
+      const isClamped = desc.classList.contains('line-clamp-3');
+      if (isClamped) {
+        desc.classList.remove('line-clamp-3');
+        btn.textContent = isFrench ? 'Lire moins' : 'Read Less';
+      } else {
+        desc.classList.add('line-clamp-3');
+        btn.textContent = isFrench ? 'Lire plus' : 'Read More';
+      }
+    }
+  });
+});
+

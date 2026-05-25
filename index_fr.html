@@ -137,7 +137,7 @@
       <!-- Main heading -->
       <div class="reveal" style="transition-delay: 0.15s">
         <h1
-          class="font-display font-extrabold text-5xl sm:text-7xl lg:text-8xl xl:text-9xl leading-[0.9] tracking-tight mb-6">
+          class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl xl:text-8xl leading-[0.9] tracking-tight mb-6">
           <span class="block text-white">Mejdoubi</span>
           <span class="block text-gradient">Amine</span>
         </h1>
@@ -355,7 +355,7 @@
         </div>
 
         <!-- Systems & Networking -->
-        <div class="reveal project-card p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
+        <div class="reveal project-card tech-card-extra hidden md:block p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
           style="transition-delay: 0.4s">
           <div class="card-shine"></div>
           <div class="relative z-10">
@@ -389,7 +389,7 @@
         </div>
 
         <!-- Databases -->
-        <div class="reveal project-card p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
+        <div class="reveal project-card tech-card-extra hidden md:block p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
           style="transition-delay: 0.5s">
           <div class="card-shine"></div>
           <div class="relative z-10">
@@ -413,7 +413,7 @@
         </div>
 
         <!-- Web & Mobile Development -->
-        <div class="reveal project-card p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
+        <div class="reveal project-card tech-card-extra hidden md:block p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
           style="transition-delay: 0.6s">
           <div class="card-shine"></div>
           <div class="relative z-10">
@@ -439,7 +439,7 @@
         </div>
 
         <!-- Cybersecurity -->
-        <div class="reveal project-card p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
+        <div class="reveal project-card tech-card-extra hidden md:block p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
           style="transition-delay: 0.7s">
           <div class="card-shine"></div>
           <div class="relative z-10">
@@ -463,7 +463,7 @@
         </div>
 
         <!-- Tools & Collaboration -->
-        <div class="reveal project-card p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
+        <div class="reveal project-card tech-card-extra hidden md:block p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
           style="transition-delay: 0.8s">
           <div class="card-shine"></div>
           <div class="relative z-10">
@@ -488,7 +488,7 @@
         </div>
 
         <!-- Soft Skills -->
-        <div class="reveal project-card p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
+        <div class="reveal project-card tech-card-extra hidden md:block p-6 rounded-2xl bg-carbon/60 border border-smoke/20 backdrop-blur-sm"
           style="transition-delay: 0.9s">
           <div class="card-shine"></div>
           <div class="relative z-10">
@@ -514,6 +514,17 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- See All Skills Button (only on mobile) -->
+      <div class="mt-8 flex justify-center md:hidden">
+        <button id="toggle-skills-btn"
+          class="magnetic-btn px-6 py-3 border border-smoke rounded-full font-body font-medium text-zinc-300 hover:border-zinc-500 hover:text-white bg-carbon/50 backdrop-blur-sm transition-all flex items-center gap-2 group"
+          data-hover>
+          <span id="toggle-skills-text">Voir toutes les compétences</span>
+          <i id="toggle-skills-icon" data-lucide="chevron-down"
+            class="w-4 h-4 group-hover:translate-y-0.5 transition-transform"></i>
+        </button>
       </div>
 
       <div class="section-divider max-w-7xl mx-auto"></div>
@@ -545,17 +556,18 @@
               <div
                 class="absolute top-0 right-0 w-64 h-64 bg-neon/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2">
               </div>
-              <div class="relative z-10 p-8 lg:p-10 flex flex-col justify-center">
+              <div class="relative z-10 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                 <div class="flex items-center gap-2 mb-3">
                   <span class="px-2.5 py-1 rounded-md bg-neon/10 text-xs font-mono text-neon">Deep Learning</span>
                   <span class="px-2.5 py-1 rounded-md bg-plasma/10 text-xs font-mono text-plasma">Optimisation</span>
                 </div>
                 <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-3">Framework de régularisation pour
                   Deep Learning</h3>
-                <p class="text-zinc-400 leading-relaxed mb-6 max-w-3xl">Une suite d'optimisation pour réseaux de
+                <p class="project-desc text-zinc-400 leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Une suite d'optimisation pour réseaux de
                   neurones profonds conçue pour éliminer le surapprentissage. Propose une planification personnalisée du
                   Dropout couplée à un suivi de régularisation L2 pour stabiliser la convergence des entraînements et
                   améliorer la généralisation du modèle sur des jeux de données bruités.</p>
+                <button class="read-more-btn text-xs font-mono text-neon hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                 <div class="flex flex-wrap gap-2 mb-6">
                   <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Python</span>
                   <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">TensorFlow</span>
@@ -587,17 +599,18 @@
                 <div
                   class="absolute top-0 right-0 w-48 h-48 bg-volt/5 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3">
                 </div>
-                <div class="relative z-10 p-8">
+                <div class="relative z-10 p-6 sm:p-8">
                   <div class="flex items-center gap-2 mb-4">
                     <span class="px-2.5 py-1 rounded-md bg-volt/10 text-xs font-mono text-volt">Vision par
                       Ordinateur</span>
                     <span class="px-2.5 py-1 rounded-md bg-ember/10 text-xs font-mono text-ember">Quantique</span>
                   </div>
                   <h3 class="font-display font-bold text-xl text-white mb-3">Pipeline de compression d'images SVD</h3>
-                  <p class="text-zinc-400 text-sm leading-relaxed mb-6">Un pipeline automatisé de factorisation de
+                  <p class="project-desc text-zinc-400 text-sm leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Un pipeline automatisé de factorisation de
                     matrices utilisant la décomposition en valeurs singulières (SVD) pour une compression d'images haute
                     fidélité. Implémente une sélection dynamique du rang basée sur des seuils de rétention de
                     l'information et propose une couche expérimentale de mécanisme d'attention quantique.</p>
+                  <button class="read-more-btn text-xs font-mono text-volt hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                   <div class="flex flex-wrap gap-2 mb-6">
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Python</span>
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">NumPy</span>
@@ -628,16 +641,17 @@
                 <div
                   class="absolute top-0 right-0 w-48 h-48 bg-ember/5 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3">
                 </div>
-                <div class="relative z-10 p-8">
+                <div class="relative z-10 p-6 sm:p-8">
                   <div class="flex items-center gap-2 mb-4">
                     <span class="px-2.5 py-1 rounded-md bg-ember/10 text-xs font-mono text-ember">ML Quantique</span>
                     <span class="px-2.5 py-1 rounded-md bg-neon/10 text-xs font-mono text-neon">Recherche</span>
                   </div>
                   <h3 class="font-display font-bold text-xl text-white mb-3">Classificateur SWAP Test Quantique</h3>
-                  <p class="text-zinc-400 text-sm leading-relaxed mb-6">Un modèle hybride d'apprentissage automatique
+                  <p class="project-desc text-zinc-400 text-sm leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Un modèle hybride d'apprentissage automatique
                     quantique-classique effectuant une classification basée sur la proximité. Utilise le circuit de test
                     Quantum SWAP pour évaluer la fidélité de l'état, fournissant une comparaison comparative avec les
                     algorithmes classiques de K-Plus Proches Voisins (K-NN).</p>
+                  <button class="read-more-btn text-xs font-mono text-ember hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                   <div class="flex flex-wrap gap-2 mb-6">
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Qiskit</span>
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Python</span>
@@ -670,7 +684,7 @@
                 <div
                   class="absolute bottom-0 left-0 w-64 h-64 bg-plasma/5 rounded-full blur-3xl -z-10 -translate-x-1/2 translate-y-1/2">
                 </div>
-                <div class="relative z-10 p-8 lg:p-10 flex flex-col justify-center">
+                <div class="relative z-10 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                   <div class="flex items-center gap-2 mb-3">
                     <span
                       class="px-2.5 py-1 rounded-md bg-plasma/10 text-xs font-mono text-plasma">Infrastructure</span>
@@ -678,10 +692,11 @@
                   </div>
                   <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-3">Infrastructure de Cloud Privé
                   </h3>
-                  <p class="text-zinc-400 leading-relaxed mb-6 max-w-3xl">Une infrastructure de cloud privé
+                  <p class="project-desc text-zinc-400 leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Une infrastructure de cloud privé
                     auto-hébergée de classe entreprise. Intègre Nextcloud sur un noyau TrueNAS pour fournir un stockage
                     sécurisé, des architectures granulaires d'autorisations d'utilisateurs, des environnements
                     collaboratifs et un backend de base de données dédié et isolé.</p>
+                  <button class="read-more-btn text-xs font-mono text-plasma hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                   <div class="flex flex-wrap gap-2 mb-6">
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">TrueNAS</span>
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Nextcloud</span>
@@ -712,17 +727,18 @@
                 <div
                   class="absolute top-0 left-0 w-64 h-64 bg-volt/5 rounded-full blur-3xl -z-10 -translate-x-1/2 -translate-y-1/2">
                 </div>
-                <div class="relative z-10 p-8 lg:p-10 flex flex-col justify-center">
+                <div class="relative z-10 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
                   <div class="flex items-center gap-2 mb-3">
                     <span class="px-2.5 py-1 rounded-md bg-volt/10 text-xs font-mono text-volt">Cloud Natif</span>
                     <span class="px-2.5 py-1 rounded-md bg-plasma/10 text-xs font-mono text-plasma">DevOps</span>
                   </div>
                   <h3 class="font-display font-bold text-2xl lg:text-3xl text-white mb-3">Infrastructure Cloud OpenStack
                     & Gnocchi</h3>
-                  <p class="text-zinc-400 leading-relaxed mb-6 max-w-3xl">Un déploiement complet d'un environnement
+                  <p class="project-desc text-zinc-400 leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Un déploiement complet d'un environnement
                     cloud OpenStack à l'aide de DevStack. Intègre Gnocchi pour une collecte de métriques robuste et une
                     surveillance des ressources, s'appuyant sur un stockage MySQL et Keystone pour une gestion sécurisée
                     de l'authentification d'identité.</p>
+                  <button class="read-more-btn text-xs font-mono text-volt hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                   <div class="flex flex-wrap gap-2 mb-6">
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">OpenStack</span>
                     <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Gnocchi</span>
@@ -750,17 +766,18 @@
                   <div
                     class="absolute bottom-0 right-0 w-48 h-48 bg-neon/5 rounded-full blur-3xl -z-10 translate-x-1/3 translate-y-1/3">
                   </div>
-                  <div class="relative z-10 p-8">
+                  <div class="relative z-10 p-6 sm:p-8">
                     <div class="flex items-center gap-2 mb-4">
                       <span
                         class="px-2.5 py-1 rounded-md bg-neon/10 text-xs font-mono text-neon">Conteneurisation</span>
                       <span class="px-2.5 py-1 rounded-md bg-volt/10 text-xs font-mono text-volt">Réseaux</span>
                     </div>
                     <h3 class="font-display font-bold text-xl text-white mb-3">Cluster Kubernetes & Réseau Flannel</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">Environnements d'orchestration locaux
+                    <p class="project-desc text-zinc-400 text-sm leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Environnements d'orchestration locaux
                       construits via Minikube et le framework léger k3s. Propose des déploiements d'applications
                       conteneurisées gérés par Helm, avec un routage réseau et une connectivité overlay configurés via
                       le plugin Flannel CNI.</p>
+                    <button class="read-more-btn text-xs font-mono text-neon hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                     <div class="flex flex-wrap gap-2 mb-6">
                       <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Kubernetes</span>
                       <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Minikube</span>
@@ -790,16 +807,19 @@
                   <div class="card-shine"></div>
                   <div
                     class="absolute bottom-0 left-0 w-48 h-48 bg-ember/5 rounded-full blur-3xl -z-10 -translate-x-1/3 translate-y-1/3">
+                  </div>
+                  <div class="relative z-10 p-6 sm:p-8">
                     <div class="flex items-center gap-2 mb-4">
                       <span class="px-2.5 py-1 rounded-md bg-ember/10 text-xs font-mono text-ember">Matériel /
                         IoT</span>
                       <span class="px-2.5 py-1 rounded-md bg-plasma/10 text-xs font-mono text-plasma">Prototypage</span>
                     </div>
                     <h3 class="font-display font-bold text-xl text-white mb-3">Prototype d'Éolienne Véhiculaire</h3>
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-6">Un prototype d'énergie renouvelable connecté
+                    <p class="project-desc text-zinc-400 text-sm leading-relaxed mb-4 max-w-3xl line-clamp-3 md:line-clamp-none transition-all">Un prototype d'énergie renouvelable connecté
                       (IoT) conçu pour capter et convertir le flux d'air cinétique des véhicules en énergie électrique.
                       Propulsé par une architecture Arduino, incluant une analyse comparative de l'efficacité
                       aérodynamique et des calculs de rendement énergétique potentiel à vitesses variables.</p>
+                    <button class="read-more-btn text-xs font-mono text-ember hover:text-white transition-colors mb-4 md:hidden text-left" data-hover>Lire plus</button>
                     <div class="flex flex-wrap gap-2 mb-6">
                       <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">IoT</span>
                       <span class="px-2 py-1 rounded bg-ash/50 text-xs font-mono text-zinc-500">Arduino</span>
